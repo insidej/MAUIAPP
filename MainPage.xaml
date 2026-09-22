@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp.MainPage"
+             Title="Finger Pick"
+             Background="#0B1715">
+    <Grid Padding="24,28,24,20" RowDefinitions="Auto,*,Auto" RowSpacing="18">
+        <Grid ColumnDefinitions="*,Auto" Grid.Row="0">
+            <VerticalStackLayout Spacing="3">
+                <Label Text="FINGER PICK" TextColor="#8FF0C2" FontSize="13" FontAttributes="Bold" CharacterSpacing="2" />
+                <Label Text="Who's in?" TextColor="#F3F7F1" FontSize="32" FontAttributes="Bold" />
+            </VerticalStackLayout>
+            <Border Grid.Column="1" Padding="14,8" Stroke="#27483E" StrokeThickness="1" StrokeShape="RoundRectangle 18" Background="#12231F">
+                <Label x:Name="CountdownLabel" Text="READY" TextColor="#8FF0C2" FontSize="13" FontAttributes="Bold" />
+            </Border>
+        </Grid>
+
+        <Border Grid.Row="1" Stroke="#285044" StrokeThickness="1" StrokeShape="RoundRectangle 24" Background="#10221D" Padding="0">
+            <Grid>
+                <GraphicsView x:Name="TouchBoard" StartInteraction="OnTouchStart" DragInteraction="OnTouchDrag" EndInteraction="OnTouchEnd" Background="Transparent" />
+                <VerticalStackLayout InputTransparent="True" HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
+                    <Label x:Name="PromptLabel" Text="Place your fingers" TextColor="#F3F7F1" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Label Text="Keep them down until the circle chooses" TextColor="#86A99C" FontSize="13" HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="2" ColumnDefinitions="*,Auto" ColumnSpacing="16">
+            <VerticalStackLayout Spacing="3" VerticalOptions="Center">
+                <Label x:Name="ParticipantLabel" Text="0 fingers on screen" TextColor="#F3F7F1" FontSize="16" FontAttributes="Bold" />
+                <Label x:Name="ResultLabel" Text="First finger starts the 10 second countdown" TextColor="#86A99C" FontSize="12" />
+            </VerticalStackLayout>
+            <Button x:Name="ResetButton" Grid.Column="1" Text="Reset" Clicked="OnResetClicked" Background="#8FF0C2" TextColor="#0B1715" FontAttributes="Bold" CornerRadius="18" Padding="18,10" MinimumHeightRequest="44" />
+        </Grid>
+    </Grid>
+</ContentPage>
