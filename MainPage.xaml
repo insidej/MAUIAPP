@@ -18,7 +18,8 @@
         <Border Grid.Row="1" Stroke="#285044" StrokeThickness="1" StrokeShape="RoundRectangle 24" Background="#10221D" Padding="0">
             <Grid>
                 <GraphicsView x:Name="TouchBoard" StartInteraction="OnTouchStart" DragInteraction="OnTouchDrag" EndInteraction="OnTouchEnd" Background="Transparent" />
-                <VerticalStackLayout InputTransparent="True" HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
+            <BoxView x:Name="PulseOverlay" Color="#FF775E" Opacity="0" InputTransparent="True" />
+                <VerticalStackLayout x:Name="BoardPrompt" InputTransparent="True" HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
                     <Label x:Name="PromptLabel" Text="Place your fingers" TextColor="#F3F7F1" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Center" />
                     <Label Text="Keep them down until the circle chooses" TextColor="#86A99C" FontSize="13" HorizontalTextAlignment="Center" />
                 </VerticalStackLayout>
@@ -28,7 +29,7 @@
         <Grid Grid.Row="2" ColumnDefinitions="*,Auto" ColumnSpacing="16">
             <VerticalStackLayout Spacing="3" VerticalOptions="Center">
                 <Label x:Name="ParticipantLabel" Text="0 fingers on screen" TextColor="#F3F7F1" FontSize="16" FontAttributes="Bold" />
-                <Label x:Name="ResultLabel" Text="First finger starts the 10 second countdown" TextColor="#86A99C" FontSize="12" />
+                <Label x:Name="ResultLabel" Text="First finger starts the 5 second countdown" TextColor="#86A99C" FontSize="12" />
             </VerticalStackLayout>
             <Button x:Name="ResetButton" Grid.Column="1" Text="Reset" Clicked="OnResetClicked" Background="#8FF0C2" TextColor="#0B1715" FontAttributes="Bold" CornerRadius="18" Padding="18,10" MinimumHeightRequest="44" />
         </Grid>
